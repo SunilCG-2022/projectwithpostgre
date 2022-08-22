@@ -1,0 +1,72 @@
+package com.wesynergize.model;
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "We_Synergize")
+@Data
+@Getter
+@Setter
+public class WeSynergizeModel {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int primaryKey;
+
+	private String adourl;
+
+	private String organizationName;
+
+	private String projectName;
+
+	private String repoName;
+
+	public int getPrimaryKey() {
+		return primaryKey;
+	}
+
+	public void setPrimaryKey(int primaryKey) {
+		this.primaryKey = primaryKey;
+	}
+
+	public String getAdourl() {
+		return adourl;
+	}
+
+	public void setAdourl(String adourl) {
+		this.adourl = adourl;
+	}
+
+	public String getOrganizationName() {
+		return organizationName;
+	}
+
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
+	}
+
+	public String getProjectName() {
+		return projectName;
+	}
+
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+
+	public String getRepoName() {
+		return repoName;
+	}
+
+	public void setRepoName(String repoName) {
+		this.repoName = repoName;
+	}
+}
