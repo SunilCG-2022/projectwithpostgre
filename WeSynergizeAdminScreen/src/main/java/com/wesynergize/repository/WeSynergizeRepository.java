@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.wesynergize.model.WeSynergizeModel;
 
 @Repository
-public interface WeSynergizeRepository extends JpaRepository<WeSynergizeModel, Integer> {
+public interface WeSynergizeRepository extends JpaRepository<WeSynergizeModel, Long> {
 
 }

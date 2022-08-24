@@ -21,7 +21,7 @@ public class WeSynergizeService {
 		return weSynergizeRepository.save(model);
 	}
 
-	public WeSynergizeModel update(WeSynergizeModel model, int id) {
+	public WeSynergizeModel update(WeSynergizeModel model, Long id) {
 		WeSynergizeModel updatemodel = weSynergizeRepository.findById(id).get();
 		updatemodel.setAdourl(model.getAdourl());
 		updatemodel.setOrganizationName(model.getOrganizationName());
@@ -31,7 +31,7 @@ public class WeSynergizeService {
 
 	}
 
-	public String delete(int id) {
+	public String delete(long id) {
 		weSynergizeRepository.deleteById(id);
 		return "Deleted the Record";
 	}

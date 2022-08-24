@@ -1,0 +1,39 @@
+package com.wesynergize.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.wesynergize.model.WeSynergizeModel;
+import com.wesynergize.repository.WeSynergizeRepository;
+
+@Service
+public class WeSynergizeService {
+	@Autowired
+	private WeSynergizeRepository weSynergizeRepository;
+
+	public List<WeSynergizeModel> getAll() {
+		return weSynergizeRepository.findAll();
+	}
+
+	public WeSynergizeModel add(WeSynergizeModel model) {
+		return weSynergizeRepository.save(model);
+	}
+
+	public WeSynergizeModel update(WeSynergizeModel model, int id) {
+		WeSynergizeModel updatemodel = weSynergizeRepository.findById(id).get();
+		updatemodel.setAdourl(model.getAdourl());
+		updatemodel.setOrganizationName(model.getOrganizationName());
+		updatemodel.setProjectName(model.getProjectName());
+		updatemodel.setRepoName(model.getRepoName());
+		return weSynergizeRepository.save(updatemodel);
+
+	}
+
+	public String delete(long id) {
+		weSynergizeRepository.deleteById(id);
+		return "Deleted the Record";
+	}
+
+}

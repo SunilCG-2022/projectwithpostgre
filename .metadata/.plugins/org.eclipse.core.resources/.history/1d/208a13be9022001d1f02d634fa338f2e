@@ -1,0 +1,52 @@
+package com.wesynergize.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.wesynergize.model.WeSynergizeModel;
+import com.wesynergize.service.WeSynergizeService;
+
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("wesynergize")
+public class WeSynergizeController {
+
+	@Autowired
+	private WeSynergizeService weSynergizeService;
+
+	// get all the list
+	@GetMapping("/getall")
+	public List<WeSynergizeModel> getAll() {
+		return weSynergizeService.getAll();
+	}
+
+	// add to the list
+	@PostMapping("/add")
+	public WeSynergizeModel add(@RequestBody WeSynergizeModel model) {
+		return weSynergizeService.add(model);
+	}
+
+	// update
+	@PutMapping("/update/{id}")
+	public WeSynergizeModel update(@RequestBody WeSynergizeModel model, @PathVariable int id) {
+		return weSynergizeService.update(model, id);
+
+	}
+
+	// delete
+	@DeleteMapping("/delete/{id}")
+	public String delete(@PathVariable int id) {
+		return weSynergizeService.delete(id);
+	}
+
+}

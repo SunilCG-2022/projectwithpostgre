@@ -18,7 +18,8 @@ public class WeSynergizeModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int primaryKey;
+	
+	private long id;
 
 	private String adourl;
 
